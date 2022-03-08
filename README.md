@@ -44,4 +44,4 @@ Base address 0x19c034000
 
 #### Credits
 
-- yrp [bad64](https://github.com/yrp604/bad64)
+- yrp for [bad64](https://github.com/yrp604/bad64) (the actual disassembler)
