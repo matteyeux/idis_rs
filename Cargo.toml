@@ -1,0 +1,13 @@
+[package]
+name = "idis_rs"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+memchr = "2.4.1"
+byteorder = "1.4.3"
+bad64 = "0.6.0"
+clap = { version = "3.1.6", features = ["derive"] }
+
