@@ -5,19 +5,16 @@ use std::str::Utf8Error;
 use std::{fs, process};
 
 pub struct IBoot {
-    pub iboot: Vec<u8>,
-    pub len: usize,
+    iboot: Vec<u8>,
     pub base_addr: u64,
 }
 
 impl IBoot {
     pub fn init(file: &String) -> Result<Self, std::io::Error> {
         let iboot = fs::read(file)?;
-        let iboot_len = iboot.len();
 
         Ok(Self {
             iboot: iboot,
-            len: iboot_len,
             base_addr: 0x0,
         })
     }
