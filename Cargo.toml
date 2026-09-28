@@ -8,6 +8,6 @@ edition = "2021"
 [dependencies]
 memchr = "2.4.1"
 byteorder = "1.4.3"
-bad64 = "0.6.0"
 clap = { version = "3.1.6", features = ["derive"] }
+exarmo-aarch64 = "=0.1.3"
 

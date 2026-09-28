@@ -1,4 +1,4 @@
-use bad64;
+use exarmo_aarch64;
 use byteorder::{ByteOrder, LittleEndian};
 use memchr::memmem;
 use std::str::Utf8Error;
@@ -59,15 +59,16 @@ impl IBoot {
 
     pub fn disassemble(&mut self, count: u32, skip: usize) {
         let mut i = skip as u32;
-        for maybe_decoded in bad64::disasm(&self.iboot[skip * 4..], self.base_addr) {
+        for (n, word) in self.iboot[skip * 4..].chunks_exact(4).enumerate() {
             if count != 0 && count == i {
                 break;
             }
-            match maybe_decoded {
+            let address = self.base_addr + (n as u64) * 4;
+            match exarmo_aarch64::decode(LittleEndian::read_u32(word)) {
                 Ok(decoded) => {
-                    println!("{:04x}: {}", decoded.address(), decoded);
+                    println!("{:04x}: {}", address, decoded.at(address));
                 }
-                Err(e) => println!("{:04x}: (bad)", e.address()),
+                Err(_) => println!("{:04x}: (bad)", address),
             };
 
             i += 1;
