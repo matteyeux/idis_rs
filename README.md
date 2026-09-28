@@ -44,4 +44,5 @@ Base address 0x19c034000
 
 #### Credits
 
-- yrp for [bad64](https://github.com/yrp604/bad64) (the actual disassembler)
+- yrp for [bad64](https://github.com/yrp604/bad64) (the old disassembler)
+- vector35 for exarmo
